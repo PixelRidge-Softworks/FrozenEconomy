@@ -77,9 +77,6 @@ class Economy
     $config->set($name, $startingamount);
     $config->save();
     }
-    public static function getSelf() :  Economy{
-        return self::$self;
-    }
 
 
 

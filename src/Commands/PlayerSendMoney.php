@@ -40,13 +40,11 @@ final class PlayerSendMoney extends Command implements PluginOwned {
             $sender->sendMessage($prefix . "§cPlease Specify a amount");
         }
         $api = $this->getAPI();
-        $money = $api->getMoney($args[0]);
-        $money = strval($money);
         $yourmoney = $api->getMoney($sender->getName());
         if($yourmoney > $args[1]){
         $api->removeMoney($sender->getName(), intval($args[1]));
         $api->addMoney($args[0], intval($args[1]));
-        $sender->sendMessage($prefix . "§aYou sent" . $args[0] . " " .$money . "$ Money");
+        $sender->sendMessage($prefix . "§aYou sent" . $args[0] . " " . $args[1] . "$ Money");
         }else{
         $sender->sendMessage($prefix . "§c You do not have that much money");
         }

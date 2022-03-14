@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace IcyEndymion004\FrozenEconomy;
 
 use IcyEndymion004\FrozenEconomy\Commands\PlayerGetMoney;
+use IcyEndymion004\FrozenEconomy\Commands\PlayerSendMoney;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
@@ -53,7 +54,7 @@ class Loader extends PluginBase implements Listener{
       #  $this->getServer()->getCommandMap()->register("FrozenEconomy", new ());
       #  $this->getServer()->getCommandMap()->register("FrozenEconomy", new ());
         //player commands
-      #  $this->getServer()->getCommandMap()->register("FrozenEconomy", new ());
+        $this->getServer()->getCommandMap()->register("FrozenEconomy", new PlayerSendMoney());
         $this->getServer()->getCommandMap()->register("FrozenEconomy", new PlayerGetMoney());
     }
     public function API() : Economy {

@@ -14,9 +14,6 @@ use pocketmine\plugin\PluginOwned;
 
 final class PlayerGetMoney extends Command implements PluginOwned {
 
-    /**
-     * PrestigeCommand constructor.
-     */
     public function __construct() {
         parent::__construct("getmoney", "Shows a players money", null, ['getbal', "seebal", "seemoney"]);
         $this->setPermission("player.base.frozen.economy");

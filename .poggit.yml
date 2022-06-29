@@ -1,0 +1,8 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Pixelated-Studios/FrozenEconomy
+build-by-default: true
+branches:
+- main
+projects:
+  FrozenEconomy:
+    path: ""
+...

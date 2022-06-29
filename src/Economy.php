@@ -78,6 +78,22 @@ class Economy
     $config->save();
     }
 
+    /**
+     * @return array
+     * sends the Array of top money
+     */
+    public static function getTopMoney(): array{
+        $config = Loader::getEconomy();
+        $allmoney = $config->getAll();
+        arsort($allmoney);
+        return $allmoney;
+    }
+
+    public static function clearAllMoney(): bool {
+        $config = rmdir(Loader::get()->getDataFolder() . "economydata.yml");
+        return true;
+    }
+
 
 
 

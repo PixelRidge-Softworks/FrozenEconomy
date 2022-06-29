@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 namespace IcyEndymion004\FrozenEconomy;
 
+use IcyEndymion004\AspiredGangs\Commands\SubCommands\Admin\AdminAddMoney;
+use IcyEndymion004\AspiredGangs\Commands\SubCommands\Admin\AdminClearPlayerMoney;
+use IcyEndymion004\AspiredGangs\Commands\SubCommands\Admin\AdminRemoveMoney;
+use IcyEndymion004\AspiredGangs\Commands\SubCommands\Admin\OwnerWipeAllMoney;
 use IcyEndymion004\FrozenEconomy\Commands\PlayerGetMoney;
 use IcyEndymion004\FrozenEconomy\Commands\PlayerSendMoney;
+use IcyEndymion004\FrozenEconomy\Commands\PlayerTopMoney;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
@@ -49,13 +54,15 @@ class Loader extends PluginBase implements Listener{
     }
 
     public function registercommands(): void{
-       # $this->getServer()->getCommandMap()->register("FrozenEconomy", new ());
-       # $this->getServer()->getCommandMap()->register("FrozenEconomy", new ());
-      #  $this->getServer()->getCommandMap()->register("FrozenEconomy", new ());
-      #  $this->getServer()->getCommandMap()->register("FrozenEconomy", new ());
         //player commands
         $this->getServer()->getCommandMap()->register("FrozenEconomy", new PlayerSendMoney());
         $this->getServer()->getCommandMap()->register("FrozenEconomy", new PlayerGetMoney());
+        $this->getServer()->getCommandMap()->register("FrozenEconomy", new PlayerTopMoney());
+        //admin commands
+        $this->getServer()->getCommandMap()->register("FrozenEconomy", new AdminAddMoney());
+        $this->getServer()->getCommandMap()->register("FrozenEconomy", new AdminRemoveMoney());
+        $this->getServer()->getCommandMap()->register("FrozenEconomy", new AdminClearPlayerMoney());
+        $this->getServer()->getCommandMap()->register("FrozenEconomy", new OwnerWipeAllMoney());
     }
     public function API() : Economy {
         return $this->api;

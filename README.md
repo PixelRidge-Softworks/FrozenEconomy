@@ -1,2 +1,2 @@
 # FrozenEconomy
-a little economy plugin i made in 30 minutes with a ok api
+a little economy plugin made in 30 minutes for PMMP with an ok api
